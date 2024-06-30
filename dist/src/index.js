@@ -11,12 +11,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const graphqlinit_1 = require("../app/graphqlinit");
 require('dotenv').config();
+const PORT = process.env.PORT || 4000;
 // interface MyContext {
 //   token?: string;
 // }
 const initServer = () => __awaiter(void 0, void 0, void 0, function* () {
     const app = yield (0, graphqlinit_1.graphqServer)();
-    yield new Promise((resolve) => app.listen({ port: `${process.env.PORT}` }, resolve));
-    console.log(`🚀 Server ready at http://localhost:${process.env.PORT}`);
+    yield new Promise((resolve) => app.listen({ port: `${PORT}` }, resolve));
+    console.log(`🚀 Server ready at http://localhost:${PORT}`);
 });
 initServer();
